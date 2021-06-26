@@ -13,7 +13,7 @@ datadog_token: !vault |
 
 db_name: defaultdb
 db_host: db-postgresql-cluster-do-user-9277001-0.b.db.ondigitalocean.com
-db_port: 25060
+db_port: "25060"
 db_username: doadmin
 db_password: !vault |
           $ANSIBLE_VAULT;1.1;AES256
