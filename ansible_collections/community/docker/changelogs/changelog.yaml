@@ -135,7 +135,7 @@ releases:
     - 55-docker_image-loading.yml
     - 58-docker_container-non-detached-status.yml
     - 59-docker_container-cgroup-parent.yml
-    - 60-docker_container-publish-all.yml
+    - 60-docker_container-publish-webservers.yml
     modules:
     - description: Return facts about whether the module runs in a Docker container
       name: current_container_facts
