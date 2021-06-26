@@ -14,4 +14,21 @@
         name: redmine
         image: redmine:4.2.1
         ports:
-          - "{{ app_port | default(80) }}:3000"
+          - "{{ app_port }}:3000"
+
+    - name: setup monitoring
+      include_role:
+        name: datadog.datadog
+        apply:
+          become: yes
+      vars:
+        datadog_api_key: "{{ datadog_token }}"
+        datadog_site: "datadoghq.eu"
+        datadog_checks:
+          http_check:
+            init_config:
+            instances:
+              - name: Application health check status
+                url: http://localhost:{{ app_port }}
+                timeout: 5
+                method: GET
