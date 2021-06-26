@@ -1,2 +1,23 @@
-### Hexlet tests and linter status:
-[![Actions Status](https://github.com/badcookie/devops-for-programmers-project-lvl2/workflows/hexlet-check/badge.svg)](https://github.com/badcookie/devops-for-programmers-project-lvl2/actions)
+# Деплой на несколько серверов
+
+Балансировка нагрузки – это процесс распределения запросов между серверами приложений. Есть два основных преимущества использования балансировки: масштабируемость и отказоустойчивость приложения. Если один сервер выходит из строя, другие обеспечивают непрерывную работу приложения.
+
+В этом задании мы создадим баланщировщик нагрузки и еще один сервер для приложения. Для простоты будем использовать готовый образ докера с запакованным туда приложением — [hexletcomponents/devops-example-app](https://hub.docker.com/r/hexletcomponents/devops-example-app). Чтобы понять на каком сервере мы сейчас находимся, будем использовать переменную окружения `SERVER_MESSAGE` для вывода на страницу IP-адреса сервера.
+
+## Ссылки
+
+* [Документация Ansible](https://docs.ansible.com/ansible/latest/index.html)
+* [Ansible Facts](https://docs.ansible.com/ansible/latest/user_guide/playbooks_vars_facts.html#ansible-facts)
+* [DigitalOcean Documentation](https://docs.digitalocean.com/)
+* [How to Create Load Balancers](https://docs.digitalocean.com/products/networking/load-balancers/how-to/create/)
+* [Балансировка нагрузки](https://ru.wikipedia.org/wiki/%D0%91%D0%B0%D0%BB%D0%B0%D0%BD%D1%81%D0%B8%D1%80%D0%BE%D0%B2%D0%BA%D0%B0_%D0%BD%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B8)
+
+## Задачи
+
+* Создайте еще один сервер
+* Создайте балансировщик нагрузки
+* Настройте проброс портов на балансировщике, чтобы приложение открывалось на 80-м порту по IP-адресу балансировщика. Измените А запись для домена, чтобы она указывала на IP-адрес балансировщика
+* Реализуйте *Ansible Playbook* для деплоя *devops-example-app* на созданные ранее серверы
+* Задеплойте приложение. Проверьте, открывается ли приложение в браузере и что по имени домена на странице выводится IP-адрес сервера, на котором оно запущено. Для вывода адреса используйте переменную окружения `SERVER_MESSAGE`. Шифровать переменную в этом задании не нужно. Используйте сбор фактов, чтобы получить IP-адрес сервера
+
+При сдаче домашней работы, укажите в issue ссылку на задеплоенное приложение: http://<адрес>, порт можно не указывать, так как по умолчанию используется порт 80.

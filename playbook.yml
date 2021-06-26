@@ -1,0 +1,17 @@
+- hosts: all
+
+  tasks:
+    - name: install packages
+      apt:
+        pkg:
+          - python3-docker
+        state: latest
+        update_cache: yes
+      become: yes
+
+    - name: run app
+      docker_container:
+        name: redmine
+        image: redmine:4.2.1
+        ports:
+          - "{{ app_port | default(80) }}:3000"

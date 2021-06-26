@@ -1,0 +1,6 @@
+docker-ubuntu-1 ansible_host=167.71.248.164 ansible_user=root
+docker-ubuntu-2 ansible_host=167.172.236.236 ansible_user=root
+
+[webservers]
+docker-ubuntu-1
+docker-ubuntu-2
