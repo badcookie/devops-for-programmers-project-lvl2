@@ -1,0 +1,9 @@
+- hosts: all
+
+  tasks:
+    - name: run app
+      docker_container:
+        name: redmine
+        image: redmine:4.2.1
+        ports:
+          - "{{ app_port }}:3000"

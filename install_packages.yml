@@ -1,0 +1,10 @@
+- hosts: all
+
+  tasks:
+    - name: install packages
+      apt:
+        pkg:
+          - python3-docker
+        state: latest
+        update_cache: yes
+      become: yes
