@@ -4,7 +4,6 @@
     - name: install packages
       apt:
         pkg:
-          - python3-docker
-        state: 4.1.0-1
+          - python3-docker=4.1.0-1
         update_cache: yes
       become: yes
