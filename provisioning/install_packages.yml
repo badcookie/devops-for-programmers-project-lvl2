@@ -5,6 +5,6 @@
       apt:
         pkg:
           - python3-docker
-        state: latest
+        state: 4.1.0-1
         update_cache: yes
       become: yes
