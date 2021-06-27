@@ -5,6 +5,7 @@
       docker_container:
         name: redmine
         image: "{{ app_image }}"
+        recreate: yes
         ports:
           - "{{ app_port }}:3000"
         env:
