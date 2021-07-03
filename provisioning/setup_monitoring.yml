@@ -1,19 +1,6 @@
 - hosts: webservers
 
-  tasks:
-    - name: setup monitoring
-      include_role:
-        name: datadog.datadog
-        apply:
-          become: yes
-      vars:
-        datadog_api_key: "{{ datadog_token }}"
-        datadog_site: "datadoghq.eu"
-        datadog_checks:
-          http_check:
-            init_config:
-            instances:
-              - name: Application health check status
-                url: http://localhost:{{ app_port }}
-                timeout: 5
-                method: GET
+  roles:
+    - role: datadog.datadog
+      apply:
+        become: yes

@@ -1,7 +1,16 @@
 app_port: 80
-
 app_image: redmine:4.2.1
 
+datadog_api_key: "{{ datadog_token }}"
+datadog_site: "datadoghq.eu"
+datadog_checks:
+  http_check:
+    init_config:
+    instances:
+      - name: Application health check status
+        url: http://localhost:{{ app_port }}
+        timeout: 5
+        method: GET
 datadog_token: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           66666265313734353738303465626432383666306134346135373830366361336266656561366338
