@@ -1,6 +1,8 @@
 app_port: 80
 app_image: redmine:4.2.1
 
+python_docker_pkg_version: 4.1.0-1
+
 datadog_api_key: "{{ datadog_token }}"
 datadog_site: "datadoghq.eu"
 datadog_checks:
