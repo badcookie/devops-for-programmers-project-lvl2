@@ -1,0 +1,6 @@
+- name: install docker sdk
+  apt:
+    pkg:
+      - python3-docker={{ python_docker_pkg_version }}
+    update_cache: yes
+  become: yes
