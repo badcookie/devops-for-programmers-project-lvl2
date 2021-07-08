@@ -3,7 +3,6 @@ app_image: redmine:4.2.1
 
 python_docker_pkg_version: 4.1.0-1
 
-datadog_api_key: "{{ datadog_token }}"
 datadog_site: "datadoghq.eu"
 datadog_checks:
   http_check:
@@ -13,7 +12,7 @@ datadog_checks:
         url: http://localhost:{{ app_port }}
         timeout: 5
         method: GET
-datadog_token: !vault |
+datadog_api_key: !vault |
           $ANSIBLE_VAULT;1.1;AES256
           66666265313734353738303465626432383666306134346135373830366361336266656561366338
           6530643235373938656239316232343838646238666263660a333363373439656565376538653035
