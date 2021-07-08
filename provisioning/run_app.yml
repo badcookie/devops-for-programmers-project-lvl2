@@ -1,6 +1,6 @@
-- hosts: all
+- name: deploy redmine app
 
-  name: deploy redmine app
+  hosts: all
 
   roles:
     - redmine_app

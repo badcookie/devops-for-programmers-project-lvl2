@@ -1,6 +1,6 @@
-- hosts: all
+- name: setup datadog monitoring
 
-  name: setup datadog monitoring
+  hosts: all
 
   roles:
     - role: datadog.datadog
